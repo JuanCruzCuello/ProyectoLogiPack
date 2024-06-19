@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Repartidor.css') }}"> 
+    <title>Repartidor</title>
+</head>
+<body>
+    <h1>Repartidor</h1>
+    <form action = "{{ request.path }}" method = "post" class = "container">
+        <label for = "nombre">Nombre</label><br>
+        <input type = "text" name = "nombre" placeholder = "Nombre" /><br>
+        
+        <label for = "dni">Dni</label><br>
+        <input type = "text" name = "dni" placeholder = "dni" /><br>
+        <br>
+         <input type = "submit" value = "Guardar" />
+</body>
+</html>

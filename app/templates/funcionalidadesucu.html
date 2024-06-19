@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionalidades</title>
+</head>
+<body>
+    <h1>Funcionalidades</h1>
+    <h2>Seleccione una funcionalidad</h2>
+    <ul>
+	    <li> <a href = "{{ url_for('registrar_recepcion') }}"> Registrar la recepcion de un paquete</a></li><br>
+    	<li> <a href = "{{ url_for('registrar_salida_trans') }}"> Registrar la salida de un transporte a otra sucursal</a></li><br>
+		<li> <a href = "{{ url_for('Registrar_llegada_trans') }}"> Registrar la llegada de un transporte </a></li> <br>
+		<li> <a href = "{{ url_for('Asignar_paquete') }}"> Asignar paquete/s a un repartidor </a></li><br>		
+	</ul>
+
+
+</body>
+</html>

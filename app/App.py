@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,session,redirect
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -17,12 +17,24 @@ def index():
 
 
 
-@app.route('/Repartidor', methods=['GET', 'POST'])
-def repartidor():
-    if request.method == 'GET':
-        return render_template('template/repartidor.html')
-    elif request.method == 'POST':
-      return render_template('template/repartidor.html')
+@app.route('/login_Repartidor', methods=['GET', 'POST'])
+def login_Repartidor():
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        dni = request.form['dni']
+        repartidor = Repartidor.query.filter_by(nombre=nombre, dni=dni).first()
+        if repartidor:
+            
+            session['user_nombre'] = repartidor.nombre
+            session['user_dni'] = repartidor.dni
+            session['user_type'] = 'repartidor'  
+            return redirect('/')
+        else:
+            return render_template('message.html', message="Nombre o DNI incorrecto.", tipo="login")
+
+    return render_template('template/login_Repartidor.html')
+    
+     
   
   
   
@@ -30,20 +42,17 @@ def repartidor():
 
 @app.route('/Despachante')
 def despachante():
-     sucursales = Sucursal.query.order_by(Sucursal.numero).all()
-     return render_template('template/Despachante.html', sucursales = sucursales)
+    sucursales = Sucursal.query.order_by(Sucursal.numero).all()
+    return render_template('template/Despachante.html', sucursales = sucursales)
+     
    
 
-@app.route('/acciones_sucursal/<int:numero>')
-def acciones_sucursal(numero):
-    # Obtener la sucursal desde la base de datos por su número (ID)
-    sucursal = Sucursal.query.get(numero)
+@app.route('/funcionalidadesucu')
+def funcionalidadesucu(sucursales):
+    sucursales = Sucursal.query.get_or_404(Sucursal.numero)
+    return render_template('template/funcionalidadesucu.html', sucursales = sucursales)
 
-    if not sucursal:
-        return "Sucursal no encontrada", 404
 
-    # Renderizar la plantilla de acciones para la sucursal seleccionada
-    return render_template('acciones_sucursal.html', sucursal=sucursal)
 
 if __name__ == "__main__":
     with app.app_context():

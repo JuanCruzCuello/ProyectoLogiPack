@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Despachante</title>
 </head>
 <body>
     <h1>Despachante</h1>
@@ -12,7 +12,7 @@
     <form class="content" method="POST" action="{{ url_for('despachante') }}">
         <span class="title"> Seleccione una sucursal: </span>
         <select class="cardSelect" name="id" id="id">
-          <option value="0">Seleccione una sucursal</option>
+          <option value="0"> Sucursal</option>
           {%for sucursal in sucursales%}
           <option value="{{sucursal.id}}">
             {{sucursal.numero}} {{sucursal.provincia}} {{sucursal.localidad}}
