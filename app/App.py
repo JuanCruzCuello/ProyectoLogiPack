@@ -40,10 +40,21 @@ def login_Repartidor():
   
   
 
-@app.route('/Despachante')
+@app.route('/Despachante', methods=['GET', 'POST'])
 def despachante():
-    sucursales = Sucursal.query.order_by(Sucursal.numero).all()
-    return render_template('template/Despachante.html', sucursales = sucursales)
+    global sucursaldespachante
+    if request.method == 'POST':
+        sucursaldespachante=request.form.get('sucursal.id')
+        return redirect('template/funcionalidadesucu.html')
+    else:
+        sucursales=Sucursal.query.order_by(Sucursal.numero).all()
+        return render_template('template/Despachante.html', sucursales = sucursales)
+        
+    
+    
+    
+    
+   
      
    
 
