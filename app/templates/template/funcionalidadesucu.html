@@ -10,7 +10,7 @@
     <h2>Seleccione una funcionalidad</h2>
     <ul>
 	    <li> <a href = "{{ url_for('registrar_recepcion',sucursal_id=sucursal.id) }}"> Registrar la recepcion de un paquete</a></li><br>
-    	<li> <a href = "{{ url_for('registrar_salida_trans') }}"> Registrar la salida de un transporte a otra sucursal</a></li><br>
+    	<li> <a href = "{{ url_for('registrar_salida_trans',sucursal_id=sucursal.id) }}"> Registrar la salida de un transporte a otra sucursal</a></li><br>
 		<li> <a href = "{{ url_for('Registrar_llegada_trans') }}"> Registrar la llegada de un transporte </a></li> <br>
 		<li> <a href = "{{ url_for('Asignar_paquete') }}"> Asignar paquete/s a un repartidor </a></li><br>		
 	</ul>

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request,session,redirect,url_for,flash
 from flask_sqlalchemy import SQLAlchemy
 import os 
+from datetime import datetime
 app = Flask(__name__)
 app.secret_key = os.urandom(24) 
 app.config.from_pyfile('config.py')
@@ -101,9 +102,46 @@ def registrar_recepcion(sucursal_id):
 
 
 
-@app.route('/registrar_salida_trans')
-def registrar_salida_trans():
-    return render_template('template/registrar_salida_trans.html')
+@app.route('/registrar_salida_trans/<int:sucursal_id>', methods=['GET', 'POST'])
+def registrar_salida_trans(sucursal_id):
+    
+    if request.method == 'POST':
+        sucursal= Sucursal.query.get(sucursal_id)
+        sucursales=Sucursal.query.order_by(Sucursal.numero).all()
+        paquetes_nodisponible=Paquete.query.filter_by(entregado=False,idrepartidor=0).all()
+        transporte=Transporte.query.get(sucursal_id)
+        if transporte is None:
+            flash('Error: No se seleccionó ningun transporte.')
+            return redirect(url_for('Despachante'))
+        numero_transporte=Transporte.query.count()+1
+        try:
+            nuevo_transporte = Transporte(
+            numeroTransporte=numero_transporte,
+            fechahorasalida=datetime.now(),
+            fechahorallegada=None,
+            idsucursal=sucursal_id 
+            )
+            db.session.add(nuevo_transporte)
+            db.session.commit()
+            flash('Transporte registrado exitosamente.')
+        except Exception as error:
+            db.session.rollback()
+            flash(f'Error al registrar el transporte: {error}')
+            return redirect(url_for('registrar_salida_trans'))
+        
+    return render_template('template/registrar_salida_trans.html',sucursales=sucursales,sucursal=sucursal,paquetes_nodisponible=paquetes_nodisponible)
+
+
+
+    
+        
+
+
+
+
+
+
+
 
 @app.route('/registrar_llegada_trans')
 def Registrar_llegada_trans():
@@ -112,11 +150,6 @@ def Registrar_llegada_trans():
 @app.route('/asignar_paquete')
 def Asignar_paquete():
     return render_template('template/asignar_paquete.html')
-
-
-
-
-
 
 
 
