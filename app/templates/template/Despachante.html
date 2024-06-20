@@ -9,9 +9,9 @@
     <h1>Despachante</h1>
     <h2>Lista de sucursales</h2>
     <h3>Seleccione una provincia para realizar operaciones</h3>
-    <form class="content" method="POST" action="{{ url_for('funcionalidadesucu') }}">
+    <form class="content" method="POST" action="{{ url_for('seleccionar_sucursal') }}">
         <span class="title"> Seleccione una sucursal: </span>
-        <select class="cardSelect" name="sucursal.id" id="id">
+        <select class="cardSelect" name="id" id="id">
           <option value="0"> Sucursal</option>
           {%for sucursal in sucursales%}
           <option value="{{sucursal.id}}">
