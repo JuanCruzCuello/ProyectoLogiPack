@@ -104,11 +104,11 @@ def registrar_recepcion(sucursal_id):
 
 @app.route('/registrar_salida_trans/<int:sucursal_id>', methods=['GET', 'POST'])
 def registrar_salida_trans(sucursal_id):
-    
+    sucursal= Sucursal.query.get(sucursal_id)
+    sucursales=Sucursal.query.order_by(Sucursal.numero).all()
+    paquetes_nodisponible=Paquete.query.filter_by(entregado=False,idrepartidor=0).all()
+      
     if request.method == 'POST':
-        sucursal= Sucursal.query.get(sucursal_id)
-        sucursales=Sucursal.query.order_by(Sucursal.numero).all()
-        paquetes_nodisponible=Paquete.query.filter_by(entregado=False,idrepartidor=0).all()
         transporte=Transporte.query.get(sucursal_id)
         if transporte is None:
             flash('Error: No se seleccionó ningun transporte.')
@@ -129,7 +129,7 @@ def registrar_salida_trans(sucursal_id):
             flash(f'Error al registrar el transporte: {error}')
             return redirect(url_for('registrar_salida_trans'))
         
-    return render_template('template/registrar_salida_trans.html',sucursales=sucursales,sucursal=sucursal,paquetes_nodisponible=paquetes_nodisponible)
+    return render_template('template/registrar_salida_trans.html',sucursal=sucursal,sucursales=sucursales,paquetes_nodisponible=paquetes_nodisponible)
 
 
 
@@ -143,14 +143,32 @@ def registrar_salida_trans(sucursal_id):
 
 
 
-@app.route('/registrar_llegada_trans')
-def Registrar_llegada_trans():
-    return render_template('template/registrar_llegada_trans.html')
+@app.route('/Registrar_llegada_trans/<int:sucursal_id>', methods=['GET', 'POST'])
+def Registrar_llegada_trans(sucursal_id):
+    sucursal= Sucursal.query.get(sucursal_id)
+    datos=Transporte.query.filter(Transporte.fechahorallegada==None, Transporte.idsucursal==sucursal.id).all()
+    if not sucursal:
+        flash('Error: No se seleccionó ninguna sucursal.')
+        return redirect(url_for('Despachante'))
+    if request.method == 'POST':
+        id_transporte=(request.form['id_transporte'])
+        transporte=Transporte.query.get(id_transporte)
+        if id_transporte is None:
+            flash('Error: No se seleccionó ningun transporte.')
+        
+        transporte.fechahorallegada=datetime.now()
+        
+        try:
+            db.session.commit()
+            flash ("Registrado exitosamente")
 
-@app.route('/asignar_paquete')
-def Asignar_paquete():
-    return render_template('template/asignar_paquete.html')
-
+        except Exception as error:
+            db.session.rollback()
+            flash(f'Error al registrar el transporte: {error}')
+            return redirect(url_for('Registrar_llegada_trans'))
+        
+    return render_template('template/Registrar_llegada_trans.html',sucursal=sucursal,transportes=datos)
+    
 
 
 

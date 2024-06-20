@@ -7,5 +7,29 @@
 </head>
 <body>
     
+    <form class="content" method="POST" action="{{ url_for('Registrar_llegada_trans', sucursal_id=sucursal.id) }}">
+        <span class="title"> Transportes </span>
+        <select class="cardSelect" name="id_transporte" id="id_transporte">
+        <option value="0"> seleccione transporte</option>
+        {%for transporte in transportes%}
+    
+                <option value="{{transporte.id}}">
+                {{transporte.numeroTransporte}} {{transporte.fechahorasalida}} 
+                </option>
+    
+        {%endfor%}
+        </select>
+        <p class="desc">
+    
+        </p>
+    
+        <button class="buttonSubmit" type="submit">
+        Registrar transporte
+        <span aria-hidden="true"> → </span>
+        </button>
+    </form>
+
+
+
 </body>
 </html>
