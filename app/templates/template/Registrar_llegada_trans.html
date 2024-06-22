@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Registrar_llegada.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Registrar_llegada.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/avisos.css') }}"> 
     <title>Registrar llegada de transporte</title> 
 </head>
@@ -11,7 +11,7 @@
     <div class="container">
     <form class="content" method="POST" action="{{ url_for('Registrar_llegada_trans', sucursal_id=sucursal.id) }}">
         <span class="title"> Transportes </span>
-        <select class="cardSelect" name="id_transporte" id="id_transporte">
+        <select class="cardSelect" name="id_transporte" id="id_transporte" required>
         <option value="0"> seleccione transporte</option>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}

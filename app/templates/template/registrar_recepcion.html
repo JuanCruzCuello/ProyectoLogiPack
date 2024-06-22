@@ -21,6 +21,7 @@
         </div>
     {% endif %}
 {% endwith %}
+   
         <form action="{{ url_for('registrar_recepcion',sucursal_id=sucursal.id) }}" method="post">
             <div class="form-group">
                 <label for="nombre">Nombre Destinatario</label>

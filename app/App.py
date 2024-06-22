@@ -37,7 +37,7 @@ def login_Repartidor():
     
 
 @app.route('/Despachante', methods=['GET', 'POST'])
-def despachante():
+def Despachante():
         sucursales=Sucursal.query.order_by(Sucursal.id).all()
         return render_template('template/Despachante.html', sucursales = sucursales)
     
@@ -46,10 +46,19 @@ def seleccionar_sucursal():
     id = request.form['id']
     if id and id != "0":
         return redirect(url_for('funcionalidadesucu', id=id))
-    return redirect(url_for('despachante'))    
+    return redirect(url_for('Despachante'))    
+        
+    
+    
+    
+    
+
 @app.route('/funcionalidadesucu/<int:id>', methods=['GET'])
 def funcionalidadesucu(id):
     sucursal= Sucursal.query.get(id)
+    if not sucursal:
+        flash('Error: No se seleccionó ninguna sucursal.')
+
     
     return render_template('template/funcionalidadesucu.html',sucursal=sucursal)
 
@@ -66,7 +75,7 @@ def registrar_recepcion(sucursal_id):
 
         if sucursal is None:
             flash('Error: No se seleccionó ninguna sucursal.')
-            return redirect(url_for('despachante'))
+            return redirect(url_for('Despachante'))
         #el bloque try se usa para manejar errores en la base de datos
         numero_envio=Paquete.query.count()+1
         try:
@@ -104,7 +113,7 @@ def registrar_salida_trans(sucursal_id):
       
     if request.method == 'POST':
         transporte=Transporte.query.get(sucursal_id)
-        if transporte is None:
+        if transporte or paquetes_nodisponible is None:
             flash('Error: No se seleccionó ningun transporte.')
             return redirect(url_for('Despachante'))
         numero_transporte=Transporte.query.count()+1
@@ -147,8 +156,9 @@ def Registrar_llegada_trans(sucursal_id):
     if request.method == 'POST':
         id_transporte=(request.form['id_transporte'])
         transporte=Transporte.query.get(id_transporte)
-        if id_transporte is None:
+        if transporte  is None:
             flash('Error: No se seleccionó ningun transporte.')
+            return redirect(url_for('Despachante'))
         
         transporte.fechahorallegada=datetime.now()
         
