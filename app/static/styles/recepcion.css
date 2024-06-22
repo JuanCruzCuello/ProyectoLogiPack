@@ -1,0 +1,70 @@
+body {
+    background-color: #940101; /* Color de fondo para todo el cuerpo */
+    margin: 0; /* Elimina el margen por defecto */
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 100vh; /* 100% del alto de la ventana */
+    font-family: 'Arial', sans-serif; /* Familia de fuente para todo el cuerpo */
+    color: black; /* Color de texto para todo el cuerpo */
+}
+
+h1 {
+    color: black;
+    margin: 10px 0; /* Margen superior e inferior para los títulos */
+    text-align: center; /* Centrado del texto */
+}
+
+.container {
+    background-color: #FFFFFF; /* Fondo blanco para el contenedor */
+    padding: 30px; /* Espaciado interno del contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
+    max-width: 400px; /* Ancho máximo del contenedor */
+    width: 100%; /* Ancho completo del contenedor */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espacio inferior entre los grupos de formulario */
+}
+
+.form-group label {
+    display: block; /* Mostrar como bloque */
+    margin-bottom: 5px; /* Margen inferior para separar del input */
+    color: #000000; /* Color del texto de las etiquetas */
+}
+
+.form-group input {
+    width: calc(100% - 20px); /* Ancho del input */
+    padding: 10px; /* Espacio interno del input */
+    border: 1px solid #ddd; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados del input */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.btn {
+    display: block; /* Mostrar como bloque */
+    width: 100%; /* Ancho completo del botón */
+    padding: 10px; /* Espacio interno del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    border: none; /* Sin borde */
+    color: #fff; /* Color del texto del botón */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    cursor: pointer; /* Cursor de apuntador */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    text-align: center; /* Centrado del texto */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+/* Opcional: Mejorar el estilo de los inputs al enfocarse */
+.form-group input:focus {
+    border-color: #007bff; /* Color del borde al enfocarse */
+    outline: none; /* Sin contorno */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra suave al enfocarse */
+}

@@ -1,34 +1,49 @@
+
+body {
+    background-color: #9e0606; /* Color de fondo para todo el cuerpo */
+    margin: 0; /* Elimina el margen por defecto */
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 100vh; /* 100% del alto de la ventana */
+    font-family: serif; /* Familia de fuente para todo el cuerpo */
+    color: rgb(0, 0, 0); /* Color de texto para todo el cuerpo */
+    font-size: 24px; /* Tamaño de fuente para todo el cuerpo */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row; /* Alinea los elementos en fila */
+    align-items: center; /* Centra los botones horizontalmente */
+    margin-top: 100px; /* Espacio superior entre el título y los botones */
+}
+
 .button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(0, 0, 0);
+    padding: 20px 40px;
+    font-size: 24px; /* Tamaño de fuente para los botones */
+    color: black; /* Color de texto para los botones */
+    background-color: #FFFFFF; /* Color de fondo para los botones */
     text-decoration: none;
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    margin-left: 100px;
-    position: relative;
-    background: #444 ;
-    
+    margin-top: 10px; /* Espacio superior entre los botones */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
 }
 
 .button:hover {
-    background-color: rgb(161, 161, 161);
+    background-color: #DDDDDD; /* Color de fondo del botón al pasar el mouse */
 }
 
-.button-container {
-    display: flex; 
+h1 {
+    margin-top: 50px; /* Espacio superior entre el título y el borde superior */
+    margin-bottom: 30px; /* Espacio inferior entre el título y los botones */
+    text-align: center; /* Centra el texto horizontalmente */
 }
 
-
-.button-container .button-form {
-    margin-right: 10px; 
-}
-
-
-h1 { 
-	font-family: serif; 
-	text-align: center;
-	color: red; 
+.logo {
+    width: 200px; /* Ancho deseado para tu logo */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin-bottom: 20px; /* Espacio inferior entre el logo y el título */
 }

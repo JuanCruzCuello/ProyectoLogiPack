@@ -1,0 +1,50 @@
+body {
+    background-color: #9c0707; /* Color de fondo para todo el cuerpo */
+    margin: 0; /* Elimina el margen por defecto */
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 100vh; /* 100% del alto de la ventana */
+    font-family: Arial, sans-serif; /* Familia de fuente para todo el cuerpo */
+    color: rgb(0, 0, 0); /* Color de texto para todo el cuerpo */
+}
+
+h1, h2, h3 {
+    margin: 10px 0; /* Margen superior e inferior para los títulos */
+}
+
+.content {
+    margin-top: 20px; /* Espacio superior para el formulario */
+    text-align: center; /* Centrado del contenido del formulario */
+}
+
+.title {
+    display: block; /* Mostrar como bloque */
+    margin-bottom: 10px; /* Espacio inferior para el título */
+    color: #020101; /* Color de texto para el título */
+}
+
+.cardSelect {
+    padding: 10px; /* Espaciado interno para el select */
+    font-size: 16px; /* Tamaño de fuente para el select */
+    border-radius: 5px; /* Borde redondeado */
+    border: 1px solid #e4e4e4; /* Borde del select */
+    background-color: #fafafa; /* Fondo del select */
+    color: #333333; /* Color de texto del select */
+}
+
+.buttonSubmit {
+    padding: 15px 30px; /* Espaciado interno para el botón */
+    font-size: 18px; /* Tamaño de fuente para el botón */
+    background-color: #FFFFFF; /* Color de fondo para el botón */
+    color: #333333; /* Color de texto para el botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor apuntador al pasar el ratón */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.buttonSubmit:hover {
+    background-color: #DDDDDD; /* Color de fondo del botón al pasar el ratón */
+}

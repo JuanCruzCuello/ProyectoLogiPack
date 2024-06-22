@@ -1,0 +1,41 @@
+.flash-messages {
+    margin-bottom: 20px; /* Espacio debajo de los mensajes flash */
+}
+
+/* Estilo general para los mensajes flash */
+.alert {
+    padding: 15px; /* Espacio interno del cuadro de alerta */
+    margin-bottom: 20px; /* Espacio debajo del cuadro de alerta */
+    border: 1px solid transparent; /* Borde transparente para un fondo suave */
+    border-radius: 4px; /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+    font-size: 16px; /* Tamaño de la fuente */
+}
+
+/* Estilo para mensajes de éxito */
+.alert-success {
+    color: #155724; /* Color del texto */
+    background-color: #d4edda; /* Color de fondo */
+    border-color: #c3e6cb; /* Color del borde */
+}
+
+/* Estilo para mensajes de error */
+.alert-error {
+    color: #721c24; /* Color del texto */
+    background-color: #f8d7da; /* Color de fondo */
+    border-color: #f5c6cb; /* Color del borde */
+}
+
+/* Opcional: Estilo para mensajes informativos */
+.alert-info {
+    color: #0c5460; /* Color del texto */
+    background-color: #d1ecf1; /* Color de fondo */
+    border-color: #bee5eb; /* Color del borde */
+}
+
+/* Opcional: Estilo para mensajes de advertencia */
+.alert-warning {
+    color: #856404; /* Color del texto */
+    background-color: #fff3cd; /* Color de fondo */
+    border-color: #ffeeba; /* Color del borde */
+}

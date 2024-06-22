@@ -1,0 +1,72 @@
+body {
+    background-color: #910b0b; /* Background color for the whole body */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full height of the viewport */
+    font-family: 'Arial', sans-serif; /* Font family for the body */
+    color: white; /* Text color for the body */
+}
+
+h1, h2 {
+    margin: 10px 0; /* Margin above and below the titles */
+    text-align: center; /* Center text */
+    color: black;
+}
+
+.container {
+    background-color: #FFFFFF; /* White background for the container */
+    padding: 30px; /* Padding inside the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 400px; /* Maximum width of the container */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in total width */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space below form groups */
+}
+
+.form-group label {
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Space below labels */
+    color: #333; /* Text color for labels */
+}
+
+.form-control {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the control */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in total width */
+}
+
+.btn {
+    display: block; /* Block display */
+    width: 100%; /* Full width */
+    padding: 10px 20px; /* Padding inside the button */
+    background-color: #28a745; /* Primary button background color */
+    border: none; /* No border */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center text */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background color and transform */
+}
+
+.btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Optional: Improve the style of the select elements on focus */
+.form-control:focus {
+    border-color: #007bff; /* Border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
+}

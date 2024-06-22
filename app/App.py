@@ -46,13 +46,7 @@ def seleccionar_sucursal():
     id = request.form['id']
     if id and id != "0":
         return redirect(url_for('funcionalidadesucu', id=id))
-    return redirect(url_for('Despachante'))    
-        
-    
-    
-    
-    
-
+    return redirect(url_for('despachante'))    
 @app.route('/funcionalidadesucu/<int:id>', methods=['GET'])
 def funcionalidadesucu(id):
     sucursal= Sucursal.query.get(id)

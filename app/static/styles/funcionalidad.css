@@ -1,0 +1,47 @@
+body {
+    background-color: #960505; /* Color de fondo para todo el cuerpo */
+    margin: 0; /* Elimina el margen por defecto */
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 100vh; /* 100% del alto de la ventana */
+    font-family: 'Arial', sans-serif; /* Familia de fuente para todo el cuerpo */
+    color: rgb(0, 0, 0); /* Color de texto para todo el cuerpo */
+}
+
+h1, h2 {
+    margin: 10px 0; /* Margen superior e inferior para los títulos */
+    text-align: center; /* Centrado del texto */
+}
+
+ul {
+    list-style-type: none; /* Quita los estilos de lista (viñetas) */
+    padding: 0; /* Elimina el espacio interno de la lista */
+    text-align: center; /* Centrado del contenido de la lista */
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+li {
+    width: 300px; /* Ancho de cada cuadro */
+    padding: 20px; /* Espacio interno para cada cuadro */
+    background-color: #ececec; /* Color de fondo para cada cuadro */
+    color: #333333; /* Color de texto para cada cuadro */
+    border-radius: 10px; /* Borde redondeado */
+    text-align: center; /* Centrado del contenido */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    cursor: pointer; /* Cursor apuntador al pasar el ratón */
+}
+
+li a {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: #333333; /* Color de texto para el enlace */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Familia de fuente para el enlace */
+    font-size: 16px; /* Tamaño de fuente para el enlace */
+}
+
+li a:hover {
+    background-color: #DDDDDD; /* Color de fondo del cuadro al pasar el mouse */
+}
